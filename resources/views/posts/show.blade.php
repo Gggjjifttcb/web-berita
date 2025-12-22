@@ -10,7 +10,9 @@
         <img src="{{ asset('storage/'.$post->foto) }}" class="news-image">
     @endif
 
-    <p>{{ $post->konten }}</p>
+    <p class="news-content">
+        {!! nl2br(e($post->konten)) !!}
+    </p>
 
     <a href="{{ url()->previous() }}" class="btn-back">← Kembali</a>
 </div>
