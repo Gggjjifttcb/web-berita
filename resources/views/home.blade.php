@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Berita Terbaru</title>
+    <title>Portal Berita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -22,6 +22,31 @@
             text-decoration: none;
         }
 
+        /* NAVBAR */
+        .navbar {
+            background: #0f172a;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar .menu a {
+            color: #e5e7eb;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        .navbar .menu a:hover {
+            color: #facc15;
+        }
+
         /* LAYOUT */
         .container {
             max-width: 1200px;
@@ -32,23 +57,18 @@
             padding: 0 20px;
         }
 
-        /* ===== CONTENT ===== */
+        /* CARD BERITA */
         .news-card {
             background: #fff;
             border-radius: 14px;
             overflow: hidden;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,.08);
-            transition: transform .3s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-6px);
         }
 
         .news-card img {
             width: 100%;
-            height: 360px;
+            height: 320px;
             object-fit: cover;
         }
 
@@ -59,14 +79,13 @@
         .meta {
             font-size: 13px;
             color: #64748b;
-            display: block;
             margin-bottom: 10px;
+            display: block;
         }
 
         .news-body h2 {
             font-size: 24px;
             margin-bottom: 12px;
-            line-height: 1.4;
         }
 
         .news-body p {
@@ -76,20 +95,18 @@
         }
 
         .btn-read {
-            display: inline-block;
             padding: 10px 18px;
             background: #facc15;
             color: #000;
             font-weight: 600;
             border-radius: 6px;
-            transition: background .3s ease;
         }
 
         .btn-read:hover {
             background: #eab308;
         }
 
-        /* ===== SIDEBAR ===== */
+        /* SIDEBAR */
         .sidebar {
             background: #fff;
             padding: 20px;
@@ -105,28 +122,17 @@
             padding-bottom: 8px;
         }
 
-        .search-box input {
-            width: 100%;
-            padding: 10px 12px;
-            border-radius: 6px;
-            border: 1px solid #cbd5f5;
-            margin-bottom: 25px;
-        }
-
-        .archive ul {
+        .latest-news li {
             list-style: none;
+            margin-bottom: 12px;
         }
 
-        .archive li {
-            margin-bottom: 10px;
-        }
-
-        .archive a {
-            color: #1d4ed8;
+        .latest-news a {
             font-size: 14px;
+            color: #1d4ed8;
         }
 
-        .archive a:hover {
+        .latest-news a:hover {
             text-decoration: underline;
         }
 
@@ -135,28 +141,34 @@
             .container {
                 grid-template-columns: 1fr;
             }
-
-            .news-card img {
-                height: 240px;
-            }
         }
     </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">📰 Portal Berita</div>
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+    </div>
+</div>
+
+<!-- CONTENT -->
 <div class="container">
 
-    <!-- KONTEN BERITA -->
+    <!-- BERITA UTAMA -->
     <div>
         @foreach ($posts as $post)
             <div class="news-card">
                 @if ($post->foto)
-                    <img src="{{ asset('storage/'.$post->foto) }}" alt="foto berita">
+                    <img src="{{ asset('storage/'.$post->foto) }}" alt="">
                 @endif
 
                 <div class="news-body">
                     <span class="meta">
-                        📰 Berita • {{ $post->created_at->format('d F Y') }}
+                        {{ $post->created_at->format('d F Y') }}
                     </span>
 
                     <h2>{{ $post->judul }}</h2>
@@ -166,12 +178,26 @@
                     </p>
 
                     <a href="{{ route('posts.show', $post->id) }}" class="btn-read">
-                        Selengkapnya
+                        Baca Selengkapnya
                     </a>
                 </div>
             </div>
         @endforeach
     </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h3>Berita Terbaru</h3>
+        <ul class="latest-news">
+            @foreach ($posts->take(5) as $p)
+                <li>
+                    <a href="{{ route('posts.show', $p->id) }}">
+                        {{ $p->judul }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </aside>
 
 </div>
 
