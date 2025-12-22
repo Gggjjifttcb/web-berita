@@ -98,3 +98,43 @@ body {
     font-size: 13px;
     cursor: pointer;
 }
+ .pagination-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+
+    .pagination {
+        display: flex;
+        gap: 12px;
+    }
+
+    .pagination a,
+    .pagination span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        font-size: 13px;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        color: #1d4ed8;
+        text-decoration: none;
+        transition: .2s ease;
+    }
+
+    .pagination a:hover {
+        background: #1d4ed8;
+        color: #ffffff;
+    }
+
+    .pagination svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .pagination .disabled span {
+        opacity: .4;
+        cursor: not-allowed;
+    }

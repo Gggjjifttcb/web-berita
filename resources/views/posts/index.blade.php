@@ -45,4 +45,8 @@
             </div>
         </div>
     @endforeach
+    <div class="pagination-wrapper">
+    {{ $posts->onEachSide(0)->links('pagination::simple-default') }}
+</div>
+
 </div>

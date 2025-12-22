@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-        $posts = Post::latest()->get();
-        return view('posts.index', compact('posts'));
-    }
+  public function index()
+{
+    $posts = Post::latest()->paginate(5);
+    return view('posts.index', compact('posts'));
+}
 
     public function create()
     {

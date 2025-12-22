@@ -4,145 +4,7 @@
     <meta charset="UTF-8">
     <title>Portal Berita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-        }
-
-        body {
-            background: #f4f6f9;
-            color: #1e293b;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            background: #0f172a;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar .logo {
-            color: #fff;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .navbar .menu a {
-            color: #e5e7eb;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-
-        .navbar .menu a:hover {
-            color: #facc15;
-        }
-
-        /* LAYOUT */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        /* CARD BERITA */
-        .news-card {
-            background: #fff;
-            border-radius: 14px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.08);
-        }
-
-        .news-card img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-        }
-
-        .news-body {
-            padding: 22px;
-        }
-
-        .meta {
-            font-size: 13px;
-            color: #64748b;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .news-body h2 {
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-
-        .news-body p {
-            color: #475569;
-            line-height: 1.7;
-            margin-bottom: 18px;
-        }
-
-        .btn-read {
-            padding: 10px 18px;
-            background: #facc15;
-            color: #000;
-            font-weight: 600;
-            border-radius: 6px;
-        }
-
-        .btn-read:hover {
-            background: #eab308;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            background: #fff;
-            padding: 20px;
-            border-radius: 14px;
-            box-shadow: 0 10px 25px rgba(0,0,0,.08);
-            height: fit-content;
-        }
-
-        .sidebar h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 8px;
-        }
-
-        .latest-news li {
-            list-style: none;
-            margin-bottom: 12px;
-        }
-
-        .latest-news a {
-            font-size: 14px;
-            color: #1d4ed8;
-        }
-
-        .latest-news a:hover {
-            text-decoration: underline;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
 
@@ -183,22 +45,24 @@
                 </div>
             </div>
         @endforeach
+        <div class="pagination-wrapper">
+    {{ $posts->onEachSide(0)->links('pagination::simple-default') }}
+</div>
     </div>
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
-        <h3>Berita Terbaru</h3>
-        <ul class="latest-news">
-            @foreach ($posts->take(5) as $p)
-                <li>
-                    <a href="{{ route('posts.show', $p->id) }}">
-                        {{ $p->judul }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </aside>
-
+    <h3>Berita Terbaru</h3>
+    <ul class="latest-news">
+        @foreach ($latestPosts as $post)
+            <li>
+                <a href="{{ route('posts.show', $post->id) }}">
+                    {{ $post->judul }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</aside>
 </div>
 
 </body>
