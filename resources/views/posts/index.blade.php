@@ -3,9 +3,17 @@
 <div class="container">
     <div class="header">
         <h1>Blog / Berita</h1>
+        
         <a href="{{ route('posts.create') }}" class="btn-add">
             + Tambah Berita
         </a>
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+    @csrf
+    <button type="submit" class="btn-logout">
+        Logout
+    </button>
+</form>
+
     </div>
 
     @foreach($posts as $post)

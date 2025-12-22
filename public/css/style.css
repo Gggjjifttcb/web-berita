@@ -138,3 +138,18 @@ body {
         opacity: .4;
         cursor: not-allowed;
     }
+    .btn-logout {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
