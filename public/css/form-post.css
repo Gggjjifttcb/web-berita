@@ -1,0 +1,58 @@
+.post-form {
+    min-height: 100vh;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.post-form .container {
+    background: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.post-form h1 {
+    text-align: left;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.post-form label {
+    display: block;
+    margin-top: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.post-form input,
+.post-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.post-form input:focus,
+.post-form textarea:focus {
+    outline: none;
+    border-color: #5b5bf7;
+}
+
+.post-form .btn {
+    margin-top: 24px;
+    width: 100%;
+    background: #5b5bf7;
+    color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}

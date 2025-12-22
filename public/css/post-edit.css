@@ -1,0 +1,89 @@
+/* ISOLASI TOTAL */
+.post-edit {
+    min-height: 100vh;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* BOX FORM */
+.post-edit-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 520px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 15px 30px rgba(0,0,0,.08);
+}
+
+/* TITLE */
+.post-edit-box h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 24px;
+}
+
+/* LABEL */
+.post-edit-box label {
+    display: block;
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* INPUT */
+.post-edit-box input,
+.post-edit-box textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+/* IMAGE */
+.post-edit-img {
+    margin-top: 10px;
+    width: 160px;
+    border-radius: 10px;
+    display: block;
+}
+
+/* TEXT */
+.post-edit-muted {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* BUTTON */
+.post-edit-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.post-edit-btn:hover {
+    background: #4338ca;
+}
+
+/* BACK */
+.post-edit-back {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: #e5e7eb;
+    color: #111827;
+    font-weight: 600;
+    text-decoration: none;
+}
