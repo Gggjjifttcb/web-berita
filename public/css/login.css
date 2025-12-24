@@ -89,3 +89,37 @@ body {
         transform: translateY(0);
     }
 }
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+.alert {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.alert.success {
+    background: #e6fffa;
+    color: #065f46;
+    border: 1px solid #34d399;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+}

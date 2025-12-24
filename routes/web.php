@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,3 +49,5 @@ Route::post('/logout', function () {
 Route::get('/dashboard', function () {
     return view('dashboard'); // pastikan view dashboard.blade.php ada di resources/views
 })->name('dashboard');
+Route::get('/register', [AuthController::class, 'showRegister']);
+Route::post('/register', [AuthController::class, 'register']);

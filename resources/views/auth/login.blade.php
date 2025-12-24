@@ -16,14 +16,37 @@
         </div>
     @endif
 
-    <form method="POST" action="/login">
-        @csrf
+   <form method="POST" action="/login" autocomplete="off">
+    @csrf
 
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
+    <!-- Fake input untuk mengelabui browser -->
+    <input type="text" style="display:none">
+    <input type="password" style="display:none">
 
-        <button type="submit">Login</button>
-    </form>
+    <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="new-email"
+        required
+    >
+
+    <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="new-password"
+        required
+    >
+
+    <button type="submit">Login</button>
+</form>
+
+    <p class="register-link">
+    Belum punya akun?
+    <a href="/register">Daftar di sini</a>
+</p>
+
 </div>
 
 </body>
